@@ -1,0 +1,108 @@
+% General
+\documentclass[10pt,a4paper]{report}
+% Printing layout
+\usepackage[a4paper,width=125mm,top=25mm,bottom=25mm,bindingoffset=7mm]{geometry}
+
+% Metadata
+\def \MainTitle {Title}
+\def \MainAuthor {Author}
+\title{\Title}
+\author{\MainAuthor}
+\date{date}
+
+% Font
+\usepackage[sc,osf]{mathpazo}   % With old-style figures and real smallcaps.
+\linespread{1.0}              	% Palatino leads a little more leading
+				                        % Euler for math and numbers
+				                        % \usepackage[euler-digits,small]{eulervm}
+
+% Packages
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e}		% provides \textsubscript
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{gensymb}
+\usepackage{listings}
+\usepackage{cancel}		  % cancel
+\usepackage{fancyvrb}		% Bverbatim boxes verbatim
+\usepackage{placeins}		% for FloatBattier
+\usepackage[toc,page]{appendix} % appendix support
+\usepackage{minted}		  % better listing for code
+\usepackage{lipsum}		  % just for the example
+\usepackage[a-1b]{pdfx}	% pdf/A support (needed by some institutions)
+\usepackage{longtable,booktabs}
+
+% Bibliography
+\usepackage[backend=biber, style=numeric-comp, autocite=plain, sorting=none]{biblatex}  % compile with biber bibliography
+\addbibresource{bibliography.bib}
+
+% Figures
+\graphicspath{ {./images/} {./} }
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\MainTitle}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{\MainAuthor}
+
+% Link and references
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={\MainTitle},
+            pdfauthor={\MainAuthor},
+            pdfcreator={creator},         % creator of the document
+            pdfproducer={Producer},       % producer of the document
+            pdfkeywords={},               % list of keywords
+            pdfborder={0 0 0},
+            breaklinks=true,
+            bookmarks=true,               % show bookmarks bar
+            pdftoolbar=true,              % show Acrobat’s toolbar
+            pdfmenubar=true,              % show Acrobat’s menu
+            pdffitwindow=false,           % window fit to page when opened
+            pdfstartview={FitH},          % fits the width of the page to the window
+            pdfnewwindow=true,            % links in new PDF window
+            colorlinks=true,              % false: boxed links; true: colored links
+            linkcolor={red!60!black},
+            linkbordercolor=black,        % color of internal links (change box color with linkbordercolor)
+            citecolor={blue!50!black},    % color of links to bibliography
+            filecolor=magenta,            % color of file links
+            urlcolor={blue!80!black}      % color of external links
+            }
+\urlstyle{same}                           % don't use monospace font for urls
+
+
+% Custom commands
+\input{commands.tex}
+
+% Other optional stuff
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}  % use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{microtype.sty}{                       % use microtype if available
+\UseMicrotypeSet[protrusion]{basicmath}             % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+  \usepackage{parskip}
+}{% else
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}                  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0               % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else                                               % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi

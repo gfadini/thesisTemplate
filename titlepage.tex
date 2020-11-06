@@ -1,0 +1,45 @@
+\DeclareRobustCommand{\univsc}[1]{\Large\textsc{\textls[75]{#1}}}
+\DeclareRobustCommand{\titlesc}[1]{\linespread{1.2}\LARGE{\textls[35]{\uppercase{#1}}\linespread{1}}}
+\DeclareRobustCommand{\namesc}[1]{\large\textsc{\textls[35]{#1}}}
+
+\begin{titlepage}
+
+  \begin{center}
+    \includegraphics[width=3.5cm]{example-image-a}
+  \end{center}
+
+
+  \begin{center}
+    \univsc{University of Somewhere\\ Department of Whatever}
+    \medskip
+    \rule{10cm}{.4pt}\\
+    \medskip
+    \begin{Large}
+	    {Type of course\\ \namesc{Specialization}}
+    \end{Large}\\
+    \medskip
+    \vspace{\stretch{0.6}}
+
+    \titlesc{\MainTitle}
+
+    \bigskip\vfill
+    \large
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+      \large Advisor:&Degree Candidate:\\
+      Prof. \namesc{Name}& \namesc{\MainAuthor} \\
+      \\
+    Co-supervisor:\\
+      \namesc{Others}\\
+      \namesc{if needed}\\
+    \end{tabular*}
+  \end{center}
+
+
+  \begin{center}
+    \vfill
+    \rule{10cm}{.4pt}\\
+    \medskip
+    \univsc{Academic year 2xxx-2xxx}\\
+  \end{center}
+
+\end{titlepage}
